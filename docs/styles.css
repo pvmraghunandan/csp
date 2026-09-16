@@ -1282,19 +1282,8 @@ a.resource-card:hover {
   margin-top: 78px;
 }
 
-.roadmap-track::before {
-  content: "";
-  position: absolute;
-  top: 21px;
-  right: 9%;
-  left: 9%;
-  z-index: -1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--cyan), var(--warning), var(--accent));
-  opacity: 0.55;
-}
-
 .roadmap-card {
+  position: relative;
   min-height: 365px;
   padding: 0 28px 28px;
   border: 1px solid var(--line);
@@ -1302,7 +1291,24 @@ a.resource-card:hover {
   background: linear-gradient(145deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.015));
 }
 
+.roadmap-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 100%;
+  width: 52px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyan), var(--warning));
+  opacity: 0.55;
+}
+
+.roadmap-beta:not(:last-child)::after {
+  background: linear-gradient(90deg, var(--warning), var(--accent));
+}
+
 .roadmap-marker {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -1881,8 +1887,16 @@ a.resource-card:hover {
     text-align: left;
   }
 
-  .roadmap-track::before {
-    display: none;
+  .roadmap-card:not(:last-child)::after {
+    top: 100%;
+    left: 34px;
+    width: 1px;
+    height: 18px;
+    background: linear-gradient(180deg, var(--cyan), var(--warning));
+  }
+
+  .roadmap-beta:not(:last-child)::after {
+    background: linear-gradient(180deg, var(--warning), var(--accent));
   }
 
   .roadmap-card {
