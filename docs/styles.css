@@ -274,10 +274,10 @@ a {
   transition: color 180ms ease, transform 180ms ease;
 }
 
-.hackathon-link span {
-  color: var(--danger);
-  font-size: 0.85rem;
-  animation: heart-beat 1.6s ease-in-out infinite;
+.hackathon-link img {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
 }
 
 .hackathon-link:hover {
