@@ -1755,10 +1755,6 @@ a.resource-card:hover {
     display: none;
   }
 
-  .hackathon-link {
-    display: none;
-  }
-
   .hero {
     min-height: 920px;
     padding-top: 130px;
