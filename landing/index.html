@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Cognisphere is the governed context fabric for enterprise agents.">
+  <meta name="theme-color" content="#070910">
+  <title>Cognisphere | Governed Context for Enterprise Agents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=21">
+</head>
+<body>
+  <div class="intro-loader" aria-hidden="true">
+    <div class="intro-brand">
+      <span class="intro-sphere"></span>
+      <p>Cognisphere</p>
+      <span>Initializing governed context</span>
+      <div class="intro-progress"><i></i></div>
+    </div>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="page-noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Cognisphere home">
+      <span class="brand-mark" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </span>
+      <span>Cognisphere</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#concept">Concept</a>
+      <a href="#flow">How it works</a>
+      <a href="#journey">Journey</a>
+      <a href="#guardrails">Guardrails</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="hackathon-link" href="https://innovation-studio.microsoft.com/events/hackathon2026/submissions/projects/proj-f20cc896-210d-4c29-8c43-3f7b3c57b31d" target="_blank" rel="noreferrer">
+        <span aria-hidden="true">♥</span>
+        Global Hackathon
+      </a>
+      <a class="button button-small button-secondary" href="https://github.com/ppotti_microsoft/hack2026_cognisphere" target="_blank" rel="noreferrer">
+        GitHub
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero section-shell">
+      <div class="hero-orbit" aria-hidden="true">
+        <canvas id="memory-canvas" class="memory-canvas"></canvas>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="orbit orbit-three"></div>
+        <div class="memory-node node-one"></div>
+        <div class="memory-node node-two"></div>
+        <div class="memory-node node-three"></div>
+        <div class="memory-node node-four"></div>
+        <div class="sphere-core"></div>
+        <span class="orbit-label orbit-label-one">Capture</span>
+        <span class="orbit-label orbit-label-two">Review</span>
+        <span class="orbit-label orbit-label-three">Recall</span>
+      </div>
+
+      <div class="hero-content">
+        <p class="eyebrow reveal">The governed context fabric for enterprise agents</p>
+        <h1 class="reveal">
+          <span class="hero-headline-lead">Agents should not</span>
+          <span class="gradient-text">start from zero.</span>
+        </h1>
+        <p class="hero-copy reveal">
+          Cognisphere transforms useful knowledge from opted-in agent sessions into
+          reviewed, evidence-backed memory that authorized future sessions can retrieve.
+        </p>
+        <div class="hero-actions reveal">
+          <a class="button button-primary" href="#journey">Explore the journey</a>
+          <a class="text-link" href="#flow">See how it works <span aria-hidden="true">↓</span></a>
+        </div>
+        <dl class="hero-principles reveal" aria-label="Cognisphere principles">
+          <div><dt>Local-first</dt><dd>Capture</dd></div>
+          <div><dt>Evidence-backed</dt><dd>Memory</dd></div>
+          <div><dt>Permission-aware</dt><dd>Retrieval</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section id="concept" class="statement-section section-shell">
+      <p class="section-index">01 / The problem</p>
+      <div class="statement reveal">
+        <p>Every agent session creates valuable knowledge.</p>
+        <p class="muted">Most of it disappears when the session ends.</p>
+      </div>
+      <div class="problem-grid">
+        <article class="glass-card reveal motion-card">
+          <span class="card-number">01</span>
+          <h2>Context gets lost</h2>
+          <p>Valuable decisions remain trapped in individual sessions.</p>
+        </article>
+        <article class="glass-card reveal motion-card">
+          <span class="card-number">02</span>
+          <h2>Work gets repeated</h2>
+          <p>Teams repeatedly rebuild context that already exists.</p>
+        </article>
+        <article class="glass-card reveal motion-card">
+          <span class="card-number">03</span>
+          <h2>Raw memory creates risk</h2>
+          <p>Unreviewed context can expose data or preserve errors.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="flow" class="flow-section section-shell">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-index">02 / How it works</p>
+          <h2>From transient interaction to trusted context.</h2>
+        </div>
+        <p>Cognisphere places a governed memory pipeline between today’s agent session and tomorrow’s work.</p>
+      </div>
+
+      <div class="flow-track" role="list" aria-label="Cognisphere memory workflow">
+        <article class="flow-step reveal motion-card" role="listitem">
+          <span class="step-icon">01</span>
+          <p class="step-label">Opted-in session</p>
+          <h3>Capture</h3>
+          <p>Record bounded engineering events without running inference in the capture path.</p>
+        </article>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <article class="flow-step reveal motion-card" role="listitem">
+          <span class="step-icon">02</span>
+          <p class="step-label">Local short-term memory</p>
+          <h3>Extract</h3>
+          <p>Convert useful events into compact summaries, entities, relationships, and evidence.</p>
+        </article>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <article class="flow-step reveal motion-card" role="listitem">
+          <span class="step-icon">03</span>
+          <p class="step-label">Human checkpoint</p>
+          <h3>Review</h3>
+          <p>A reviewer inspects the exact candidate graph, provenance, branch, and supporting evidence if flagged by pipeline.</p>
+        </article>
+        <div class="flow-connector" aria-hidden="true"></div>
+        <article class="flow-step reveal motion-card" role="listitem">
+          <span class="step-icon">04</span>
+          <p class="step-label">Governed permanent memory</p>
+          <h3>Reuse</h3>
+          <p>Return approved context after configured ACL checks and retract it when needed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="journey" class="journey-section section-shell">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-index">03 / Cross-session journey</p>
+          <h2>One session learns. The next one continues.</h2>
+        </div>
+        <p>Run the story to see useful engineering context move through the governed memory boundary.</p>
+      </div>
+
+      <div class="journey-stage reveal">
+        <div class="session-window session-a">
+          <div class="session-title">
+            <span class="session-light"></span>
+            <div><p>Agent session A</p><span>Investigation</span></div>
+          </div>
+          <div class="session-message">
+            <span>Engineer</span>
+            <p>Why does the retry test keep hanging?</p>
+          </div>
+          <div class="session-message agent-message">
+            <span>Agent</span>
+            <p>The retry policy needs a bounded timeout. The synthetic test now passes.</p>
+          </div>
+          <div class="session-result" data-journey-result="source">
+            <span>✓</span>
+            <p>Evidence-backed fix discovered</p>
+          </div>
+        </div>
+
+        <div class="journey-pipeline" aria-label="Governed memory pipeline">
+          <div class="journey-line"><i></i></div>
+          <div class="journey-checkpoints">
+            <div class="journey-checkpoint active" data-journey-step="0"><span>1</span><p>Capture</p></div>
+            <div class="journey-checkpoint" data-journey-step="1"><span>2</span><p>Screen</p></div>
+            <div class="journey-checkpoint" data-journey-step="2"><span>3</span><p>Review</p></div>
+            <div class="journey-checkpoint" data-journey-step="3"><span>4</span><p>Promote</p></div>
+            <div class="journey-checkpoint" data-journey-step="4"><span>5</span><p>Recall</p></div>
+          </div>
+          <button class="journey-control" type="button" id="run-journey">
+            <span class="journey-control-icon">▶</span>
+            <span class="journey-control-text">Run the memory journey</span>
+          </button>
+        </div>
+
+        <div class="session-window session-b">
+          <div class="session-title">
+            <span class="session-light"></span>
+            <div><p>Agent session B</p><span>Future session</span></div>
+          </div>
+          <div class="session-message">
+            <span>Engineer</span>
+            <p>How was the retry failure fixed?</p>
+          </div>
+          <div class="session-memory" data-journey-result="memory">
+            <span>Governed context</span>
+            <p>Retry policy → fixed by → bounded timeout</p>
+            <small>Approved evidence · Authorized retrieval</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="guardrails" class="governance-section section-shell">
+      <div class="governance-copy reveal">
+        <p class="section-index">04 / Guardrails by design</p>
+        <h2>Trusted memory needs deliberate boundaries.</h2>
+        <p>
+          Cognisphere does not treat every model output as organizational truth.
+          Knowledge remains a candidate until its evidence and provenance pass a deliberate promotion boundary.
+        </p>
+      </div>
+
+      <div class="control-stack">
+        <article class="control-card reveal">
+          <span class="control-status">01</span>
+          <div><h3>Explicit participation</h3><p>Memory capture is designed to begin with deliberate user and workload participation.</p></div>
+        </article>
+        <article class="control-card reveal">
+          <span class="control-status">02</span>
+          <div><h3>Content safety</h3><p>Sensitive-content checks and policy screening reduce risk before knowledge is persisted.</p></div>
+        </article>
+        <article class="control-card reveal">
+          <span class="control-status">03</span>
+          <div><h3>Human validation</h3><p>High-value knowledge crosses an explicit review boundary before permanent promotion.</p></div>
+        </article>
+        <article class="control-card reveal">
+          <span class="control-status">04</span>
+          <div><h3>Permission-aware access</h3><p>Read, write, and promotion policies control how shared context is used.</p></div>
+        </article>
+        <article class="control-card reveal">
+          <span class="control-status">05</span>
+          <div><h3>Traceable and retractable</h3><p>Provenance supports auditability, correction, and removal throughout the memory lifecycle.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section id="roadmap" class="roadmap-section section-shell">
+      <p class="section-index">05 / Roadmap</p>
+      <div class="roadmap-statement reveal">
+        <h2>From governed memory to an enterprise-ready context fabric.</h2>
+        <p>
+          The roadmap advances Cognisphere from a connected agent experience toward
+          cloud scale, responsible AI integration, and first-party distribution.
+        </p>
+      </div>
+      <div class="roadmap-track">
+        <article class="roadmap-card roadmap-now reveal motion-card">
+          <div class="roadmap-marker"><span></span><small>Now</small></div>
+          <p class="roadmap-phase">Connected experience</p>
+          <h3>Agent memory foundation</h3>
+          <p>Cross-session context, human validation, provenance, permissions, and lifecycle guardrails.</p>
+        </article>
+        <article class="roadmap-card roadmap-beta reveal motion-card">
+          <div class="roadmap-marker"><span></span><small>Beta · In progress</small></div>
+          <p class="roadmap-phase">Cloud based</p>
+          <h3>Shared governed context</h3>
+          <p>Cloud-hosted memory, scalable retrieval, stronger identity boundaries, and managed agent integrations.</p>
+        </article>
+        <article class="roadmap-card roadmap-ga reveal motion-card">
+          <div class="roadmap-marker"><span></span><small>GA readiness</small></div>
+          <p class="roadmap-phase">Enterprise distribution</p>
+          <h3>Responsible and secure by default</h3>
+          <ul>
+            <li>Responsible AI integration</li>
+            <li>Microsoft Defender security scanning</li>
+            <li>Marketplace first-party application</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="final-pitch section-shell">
+      <div class="final-pitch-glow" aria-hidden="true"></div>
+      <p class="section-index reveal">Remember responsibly</p>
+      <h2 class="reveal">Your agents already generate knowledge.<br><span>Make it safe to remember.</span></h2>
+      <div class="final-actions reveal">
+        <a class="button button-primary" href="https://github.com/ppotti_microsoft/hack2026_cognisphere" target="_blank" rel="noreferrer">Explore Cognisphere</a>
+        <a class="text-link" href="#roadmap">View the roadmap <span aria-hidden="true">↑</span></a>
+      </div>
+    </section>
+
+    <section class="hackathon-finale section-shell" aria-label="Microsoft Global Hackathon">
+      <a href="https://innovation-studio.microsoft.com/events/hackathon2026/submissions/projects/proj-f20cc896-210d-4c29-8c43-3f7b3c57b31d" target="_blank" rel="noreferrer" class="hackathon-finale-link reveal">
+        <span class="brand-mark finale-mark" aria-hidden="true">
+          <span></span><span></span><span></span>
+        </span>
+        <span>Built for the Microsoft Global Hackathon</span>
+        <strong>Visit the Hackathon ↗</strong>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer section-shell">
+    <p class="copyright"><span>© 2026 Cognisphere</span><span class="footer-divider" aria-hidden="true"></span><span>Microsoft Global Hackathon</span></p>
+  </footer>
+
+  <script src="script.js?v=14"></script>
+</body>
+</html>
