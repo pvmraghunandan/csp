@@ -22,6 +22,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 68px;
+}
+
+main > section[id] {
+  scroll-snap-align: start;
 }
 
 body {
