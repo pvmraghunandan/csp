@@ -302,6 +302,12 @@ a {
   font-size: 0.78rem;
 }
 
+.header-github-mark {
+  width: 1rem;
+  height: 1rem;
+  flex: 0 0 auto;
+}
+
 .button-primary {
   background: linear-gradient(135deg, var(--accent), #6655da);
   box-shadow: 0 12px 35px rgba(115, 96, 229, 0.28);
