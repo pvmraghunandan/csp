@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Cognisphere</title>
+  <defs>
+    <radialGradient id="bg" cx="32" cy="27" r="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#17213d"/>
+      <stop offset="0.58" stop-color="#0b1020"/>
+      <stop offset="1" stop-color="#070910"/>
+    </radialGradient>
+    <linearGradient id="cyan" x1="13" y1="12" x2="51" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7efcf3"/>
+      <stop offset="1" stop-color="#20b8ff"/>
+    </linearGradient>
+    <linearGradient id="violet" x1="16" y1="50" x2="48" y2="14" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8f7cff"/>
+      <stop offset="1" stop-color="#c6bcff"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)"/>
+  <circle cx="32" cy="32" r="24" fill="none" stroke="#8f7cff" stroke-opacity="0.45" stroke-width="2"/>
+  <ellipse cx="32" cy="32" rx="11" ry="24" fill="none" stroke="url(#cyan)" stroke-width="3"/>
+  <ellipse cx="32" cy="32" rx="11" ry="24" fill="none" stroke="url(#violet)" stroke-width="3" transform="rotate(58 32 32)"/>
+  <ellipse cx="32" cy="32" rx="11" ry="24" fill="none" stroke="url(#violet)" stroke-width="3" transform="rotate(-58 32 32)"/>
+  <circle cx="32" cy="32" r="4" fill="#f5f7fb"/>
+</svg>
