@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=26">
 </head>
 <body>
   <div class="intro-loader" aria-hidden="true">
@@ -37,6 +37,7 @@
     <nav class="desktop-nav" aria-label="Primary navigation">
       <a href="#concept">Concept</a>
       <a href="#flow">How it works</a>
+      <a href="#integrations">Integrations</a>
       <a href="#journey">Journey</a>
       <a href="#guardrails">Guardrails</a>
       <a href="#roadmap">Roadmap</a>
@@ -47,7 +48,7 @@
         <img class="header-hackathon-mark" src="assets/cognisphere_logo.svg" alt="" aria-hidden="true">
         Microsoft Global Hackathon
       </a>
-      <a class="button button-small button-secondary" href="https://github.com/ppotti_microsoft/hack2026_cognisphere" target="_blank" rel="noreferrer">
+      <a class="button button-small button-secondary" href="https://github.com/pvmraghunandan/csp" target="_blank" rel="noreferrer">
         GitHub
         <span aria-hidden="true">↗</span>
       </a>
@@ -55,6 +56,25 @@
   </header>
 
   <main id="top">
+    <aside class="availability-banner" aria-label="Available integrations">
+      <div class="availability-banner-inner">
+        <span class="availability-label">Plug-in integrations available</span>
+        <div class="availability-products">
+          <a class="availability-product availability-product-agency" href="#integrations">
+            <img src="assets/integrations/agency.png" alt="">
+            <strong>Agency</strong>
+            <small>Ready to test</small>
+          </a>
+          <a class="availability-product availability-product-github" href="#integrations">
+            <img src="assets/integrations/github-copilot.png" alt="">
+            <strong>GitHub Copilot</strong>
+            <small>Ready to test</small>
+          </a>
+        </div>
+        <a href="#integrations">View integrations <span aria-hidden="true">↓</span></a>
+      </div>
+    </aside>
+
     <section class="hero section-shell">
       <div class="hero-orbit" aria-hidden="true">
         <canvas id="memory-canvas" class="memory-canvas"></canvas>
@@ -93,8 +113,63 @@
       </div>
     </section>
 
+    <section id="integrations" class="integrations-section section-shell">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-index">01 / Agent integrations</p>
+          <h2>Use Cognisphere where your agents already work.</h2>
+        </div>
+        <p>
+          Choose a fully supported integration to test today. Additional CLI adapters
+          will plug into the same governed context interface.
+        </p>
+      </div>
+
+      <div class="available-integrations" aria-label="Fully supported integrations">
+        <article class="integration-card integration-card-live reveal motion-card">
+          <div class="integration-card-topline">
+            <span class="integration-logo">
+              <img src="assets/integrations/agency.png" alt="Agency logo">
+            </span>
+            <span class="integration-status"><i aria-hidden="true"></i> Available now</span>
+          </div>
+          <p class="integration-kicker">Fully supported</p>
+          <h3>Agency</h3>
+          <p>Capture and retrieve governed context directly across Agency sessions.</p>
+          <a class="text-link" href="https://github.com/pvmraghunandan/csp" target="_blank" rel="noreferrer">Test the integration <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="integration-card integration-card-live reveal motion-card">
+          <div class="integration-card-topline">
+            <span class="integration-logo">
+              <img src="assets/integrations/github-copilot.png" alt="GitHub Copilot logo">
+            </span>
+            <span class="integration-status"><i aria-hidden="true"></i> Available now</span>
+          </div>
+          <p class="integration-kicker">Fully supported</p>
+          <h3>GitHub Copilot</h3>
+          <p>Connect coding sessions to reviewed, evidence-backed memory that can be reused safely.</p>
+          <a class="text-link" href="https://github.com/pvmraghunandan/csp" target="_blank" rel="noreferrer">Test the integration <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+
+      <div class="planned-integrations reveal">
+        <div>
+          <p class="integration-kicker">Plug-in roadmap</p>
+          <h3>More agent CLIs, one context fabric.</h3>
+        </div>
+        <ul aria-label="Planned CLI integrations">
+          <li><span class="cli-mark"><img src="assets/integrations/scout.png" alt=""></span><strong>Scout</strong><small>Roadmap</small></li>
+          <li><span class="cli-mark"><img src="assets/integrations/openclaw.png" alt=""></span><strong>OpenClaw</strong><small>Roadmap</small></li>
+          <li><span class="cli-mark"><img src="assets/integrations/copilot.png" alt=""></span><strong>Copilot</strong><small>Roadmap</small></li>
+          <li><span class="cli-mark"><img src="assets/integrations/antigravity.png" alt=""></span><strong>AntiGravity</strong><small>Roadmap</small></li>
+          <li><span class="cli-mark"><img src="assets/integrations/vscode.png" alt=""></span><strong>VS Code</strong><small>Roadmap</small></li>
+        </ul>
+      </div>
+    </section>
+
     <section id="concept" class="statement-section section-shell">
-      <p class="section-index">01 / The problem</p>
+      <p class="section-index">02 / The problem</p>
       <div class="statement reveal">
         <p>Every agent session creates valuable knowledge.</p>
         <p class="muted">Most of it disappears when the session ends.</p>
@@ -121,7 +196,7 @@
     <section id="flow" class="flow-section section-shell">
       <div class="section-heading reveal">
         <div>
-          <p class="section-index">02 / How it works</p>
+          <p class="section-index">03 / How it works</p>
           <h2>From transient interaction to trusted context.</h2>
         </div>
         <p>Cognisphere places a governed memory pipeline between today’s agent session and tomorrow’s work.</p>
@@ -161,7 +236,7 @@
     <section id="journey" class="journey-section section-shell">
       <div class="section-heading reveal">
         <div>
-          <p class="section-index">03 / Cross-session journey</p>
+          <p class="section-index">04 / Cross-session journey</p>
           <h2>One session learns. The next one continues.</h2>
         </div>
         <p>Run the story to see useful engineering context move through the governed memory boundary.</p>
@@ -222,7 +297,7 @@
 
     <section id="guardrails" class="governance-section section-shell">
       <div class="governance-copy reveal">
-        <p class="section-index">04 / Guardrails by design</p>
+        <p class="section-index">05 / Guardrails by design</p>
         <h2>Trusted memory needs deliberate boundaries.</h2>
         <p>
           Cognisphere does not treat every model output as organizational truth.
@@ -255,43 +330,43 @@
     </section>
 
     <section id="roadmap" class="roadmap-section section-shell">
-      <p class="section-index">05 / Roadmap</p>
+      <p class="section-index">06 / Integration roadmap</p>
       <div class="roadmap-statement reveal">
-        <h2>From governed memory to an enterprise-ready context fabric.</h2>
+        <h2>From two supported agents to every CLI your team uses.</h2>
         <p>
-          The roadmap advances Cognisphere from a connected agent experience toward
-          cloud scale, responsible AI integration, and first-party distribution.
+          A shared adapter contract makes each integration a plug-in to the same
+          governed capture, review, and retrieval pipeline.
         </p>
       </div>
       <div class="roadmap-track">
         <article class="roadmap-card roadmap-now reveal motion-card">
-          <div class="roadmap-marker"><span></span><small>Now</small></div>
-          <p class="roadmap-phase">Connected experience</p>
-          <h3>Agent memory foundation</h3>
+          <div class="roadmap-marker"><span></span><small>Available to test</small></div>
+          <p class="roadmap-phase">Fully supported</p>
+          <h3>Available integrations</h3>
           <ul>
-            <li>Cross-session context</li>
-            <li>Human validation and provenance</li>
-            <li>Permissions and lifecycle guardrails</li>
+            <li>Agency — ready for hands-on testing</li>
+            <li>GitHub Copilot — ready for hands-on testing</li>
+            <li>End-to-end capture and retrieval</li>
           </ul>
         </article>
         <article class="roadmap-card roadmap-beta reveal motion-card">
-          <div class="roadmap-marker"><span></span><small>Beta · In progress</small></div>
-          <p class="roadmap-phase">Cloud-based</p>
-          <h3>Shared governed context</h3>
+          <div class="roadmap-marker"><span></span><small>Next</small></div>
+          <p class="roadmap-phase">CLI adapters</p>
+          <h3>Next CLI adapters</h3>
           <ul>
-            <li>Cloud-hosted memory and scalable retrieval</li>
-            <li>Stronger identity boundaries</li>
-            <li>Managed agent integrations</li>
+            <li>Scout</li>
+            <li>OpenClaw</li>
+            <li>Copilot</li>
           </ul>
         </article>
         <article class="roadmap-card roadmap-ga reveal motion-card">
-          <div class="roadmap-marker"><span></span><small>GA readiness</small></div>
-          <p class="roadmap-phase">Enterprise distribution</p>
-          <h3>Responsible and secure by default</h3>
+          <div class="roadmap-marker"><span></span><small>Planned</small></div>
+          <p class="roadmap-phase">Developer surfaces</p>
+          <h3>Developer surfaces</h3>
           <ul>
-            <li>Responsible AI integration</li>
-            <li>Microsoft Defender security scanning</li>
-            <li>Marketplace first-party application</li>
+            <li>AntiGravity</li>
+            <li>VS Code</li>
+            <li>Extensible adapter SDK</li>
           </ul>
         </article>
       </div>
@@ -302,7 +377,7 @@
       <p class="section-index reveal">Remember responsibly</p>
       <h2 class="reveal">Your agents already generate knowledge.<br><span>Make it safe to remember.</span></h2>
       <div class="final-actions reveal">
-        <a class="button button-primary" href="https://github.com/ppotti_microsoft/hack2026_cognisphere" target="_blank" rel="noreferrer">Explore Cognisphere</a>
+        <a class="button button-primary" href="https://github.com/pvmraghunandan/csp" target="_blank" rel="noreferrer">Explore Cognisphere</a>
         <a class="text-link" href="#roadmap">View the roadmap <span aria-hidden="true">↑</span></a>
       </div>
     </section>
@@ -320,6 +395,6 @@
     <p class="copyright"><span>© 2026 Cognisphere</span><span class="footer-divider" aria-hidden="true"></span><span>Microsoft Global Hackathon</span></p>
   </footer>
 
-  <script src="script.js?v=14"></script>
+  <script src="script.js?v=15"></script>
 </body>
 </html>
