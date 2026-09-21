@@ -581,6 +581,13 @@ a {
   font-size: 0.8rem;
 }
 
+.integration-access-note {
+  margin: 12px 0 0;
+  color: var(--cyan);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
 .planned-integrations {
   display: grid;
   grid-template-columns: minmax(230px, 0.65fr) minmax(0, 1.35fr);
