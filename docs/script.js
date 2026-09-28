@@ -54,7 +54,11 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
   );
 
   revealItems.forEach((item, index) => {
-    item.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+    if (item.dataset.revealDelay) {
+      item.style.setProperty("--reveal-delay", `${item.dataset.revealDelay}ms`);
+    } else {
+      item.style.transitionDelay = `${Math.min(index % 4, 3) * 70}ms`;
+    }
     observer.observe(item);
   });
 }
@@ -62,6 +66,61 @@ if (reducedMotion || !("IntersectionObserver" in window)) {
 const year = document.getElementById("year");
 if (year) {
   year.textContent = new Date().getFullYear();
+}
+
+const testimonialStage = document.querySelector("[data-testimonial-stage]");
+if (testimonialStage) {
+  const slots = [...testimonialStage.querySelectorAll(".testimonial-slot")];
+  const orbitSlots = ["a", "b", "c", "d"];
+  const stackQuery = window.matchMedia("(max-width: 900px)");
+  let activeIndex = 0;
+  let settleTimer;
+
+  // Absolutely positioned slots contribute no height, so the stage is sized
+  // from whichever card is currently featured.
+  function syncStageHeight() {
+    if (stackQuery.matches) {
+      testimonialStage.style.removeProperty("height");
+      return;
+    }
+
+    const featured = slots[activeIndex].querySelector(".testimonial-card");
+    testimonialStage.style.height = `${featured.offsetHeight + 120}px`;
+  }
+
+  function setActiveTestimonial(index) {
+    activeIndex = index;
+    let orbit = 0;
+
+    slots.forEach((slot, slotIndex) => {
+      const isActive = slotIndex === index;
+
+      slot.dataset.slot = isActive ? "center" : orbitSlots[orbit++];
+      slot.querySelector(".testimonial-card").classList.toggle("testimonial-feature", isActive);
+      slot.querySelector(".testimonial-pick").disabled = isActive;
+    });
+
+    // The first measurement lands mid-transition while the slot is still
+    // resizing, so re-measure once the width has settled.
+    syncStageHeight();
+    window.clearTimeout(settleTimer);
+    settleTimer = window.setTimeout(syncStageHeight, 680);
+  }
+
+  slots.forEach((slot, index) => {
+    const pick = document.createElement("button");
+    const label = document.createElement("span");
+    label.textContent = `Feature the quote from ${slot.dataset.name}`;
+    pick.type = "button";
+    pick.className = "testimonial-pick";
+    pick.append(label);
+    pick.addEventListener("click", () => setActiveTestimonial(index));
+    slot.append(pick);
+  });
+
+  setActiveTestimonial(0);
+  window.addEventListener("resize", syncStageHeight);
+  window.addEventListener("load", syncStageHeight);
 }
 
 const journeyButton = document.getElementById("run-journey");

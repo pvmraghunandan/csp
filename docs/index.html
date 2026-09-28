@@ -460,6 +460,8 @@
     </section>
 
     <section id="testimonials" class="testimonials-section section-shell">
+      <div class="testimonials-aurora" aria-hidden="true"></div>
+
       <div class="section-heading reveal">
         <div>
           <p class="section-index">03 / Early feedback</p>
@@ -471,16 +473,18 @@
         </p>
       </div>
 
-      <div class="testimonial-grid">
-        <article class="testimonial-card testimonial-featured reveal">
+      <div class="testimonial-stage" data-testimonial-stage>
+        <div class="testimonial-slot reveal" data-reveal-delay="0" data-name="Armita Quinones" style="--float-delay: 0s; --float-duration: 5.6s; --float-tilt: 0.55;">
+        <article class="testimonial-card">
           <span class="testimonial-mark" aria-hidden="true">“</span>
+          <p class="testimonial-context">Written feedback</p>
           <blockquote>
             Really cool idea and very relevant to where engineering and AI are heading.
             I like that the team focused not just on agent capabilities, but on one of the
             biggest challenges today: how to preserve and safely reuse knowledge that would
             otherwise be lost in individual AI sessions.
           </blockquote>
-          <p>
+          <p class="testimonial-support">
             The emphasis on governance, security, provenance, and permission-aware access
             shows strong enterprise thinking. This has the potential to save significant
             engineering time, improve onboarding and handoffs, and help teams build on each
@@ -491,46 +495,93 @@
               <img src="assets/testimonials/manager-avatar.svg" alt="">
             </span>
             <div>
-              <strong>Engineering manager</strong>
-              <span>Written feedback</span>
+              <strong>Armita Quinones</strong>
+              <span>Principal Engineering Manager, Microsoft</span>
             </div>
           </footer>
         </article>
+        </div>
 
-        <div class="testimonial-stack">
-          <article class="testimonial-card reveal motion-card">
-            <p class="testimonial-context">Paraphrased booth feedback</p>
-            <blockquote>
-              Super impressed by the concept and looking forward to seeing it available
-              alongside today’s Agency and GitHub Copilot capabilities.
-            </blockquote>
-            <footer>
-              <span class="testimonial-avatar testimonial-avatar-judge" aria-hidden="true">
-                <img src="assets/testimonials/judge-avatar.svg" alt="">
-              </span>
-              <div>
-                <strong>Hackathon judges</strong>
-                <span>Booth review</span>
-              </div>
-            </footer>
-          </article>
+        <div class="testimonial-slot reveal" data-reveal-delay="90" data-name="Vinod Patankar" style="--float-delay: -0.9s; --float-duration: 4.6s; --float-tilt: -1;">
+        <article class="testimonial-card">
+          <span class="testimonial-mark" aria-hidden="true">“</span>
+          <p class="testimonial-context">Paraphrased booth feedback</p>
+          <blockquote>
+            We would use this day to day. Incrementally learning, sharing, and preserving
+            knowledge within and across teams solves a very real engineering need.
+          </blockquote>
+          <footer>
+            <span class="testimonial-avatar testimonial-avatar-leader" aria-hidden="true">
+              <img src="assets/testimonials/leader-avatar.svg" alt="">
+            </span>
+            <div>
+              <strong>Vinod Patankar</strong>
+              <span>Principal Engineer, Microsoft</span>
+            </div>
+          </footer>
+        </article>
+        </div>
 
-          <article class="testimonial-card reveal motion-card">
-            <p class="testimonial-context">Paraphrased booth feedback</p>
-            <blockquote>
-              We would use this day to day. Incrementally learning, sharing, and preserving
-              knowledge within and across teams solves a very real engineering need.
-            </blockquote>
-            <footer>
-              <span class="testimonial-avatar testimonial-avatar-leader" aria-hidden="true">
-                <img src="assets/testimonials/leader-avatar.svg" alt="">
-              </span>
-              <div>
-                <strong>Engineering leaders</strong>
-                <span>Booth conversations</span>
-              </div>
-            </footer>
-          </article>
+        <div class="testimonial-slot reveal" data-reveal-delay="180" data-name="Vasundhara Puttagunta" style="--float-delay: -2.4s; --float-duration: 5.2s; --float-tilt: 1;">
+        <article class="testimonial-card">
+          <span class="testimonial-mark" aria-hidden="true">“</span>
+          <p class="testimonial-context">Paraphrased booth feedback</p>
+          <blockquote>
+            A genuinely compelling idea. I am keen to put it to work inside my own team,
+            where I expect it to accelerate initiatives like Tigerlint.
+          </blockquote>
+          <footer>
+            <span class="testimonial-avatar testimonial-avatar-architect" aria-hidden="true">
+              <img src="assets/testimonials/architect-avatar.svg" alt="">
+            </span>
+            <div>
+              <strong>Vasundhara Puttagunta</strong>
+              <span>Principal Architect, Defender, Microsoft</span>
+            </div>
+          </footer>
+        </article>
+        </div>
+
+        <div class="testimonial-slot reveal" data-reveal-delay="270" data-name="the Hyderabad science fair judge" style="--float-delay: -1.3s; --float-duration: 4.6s; --float-tilt: 1;">
+        <article class="testimonial-card">
+          <span class="testimonial-mark" aria-hidden="true">“</span>
+          <p class="testimonial-context">Paraphrased judge feedback</p>
+          <blockquote>
+            Super impressed by the concept and looking forward to seeing it available
+            alongside today’s Agency and GitHub Copilot capabilities.
+          </blockquote>
+          <footer>
+            <span class="testimonial-avatar testimonial-avatar-judge" aria-hidden="true">
+              <img src="assets/testimonials/judge-avatar.svg" alt="">
+            </span>
+            <div>
+              <strong>Science fair judge</strong>
+              <span>Hyderabad science fair</span>
+            </div>
+          </footer>
+        </article>
+        </div>
+
+        <div class="testimonial-slot reveal" data-reveal-delay="360" data-name="Alexandru-Cosmin" style="--float-delay: -2.8s; --float-duration: 5.2s; --float-tilt: -1;">
+        <article class="testimonial-card">
+          <span class="testimonial-mark" aria-hidden="true">“</span>
+          <p class="testimonial-context">Paraphrased booth feedback</p>
+          <blockquote>
+            This struck a chord. I had already built something along these lines for myself,
+            scoped to a single user rather than a team or an organisation, so my agents could
+            pick up existing context instead of relearning everything from zero. Seeing the
+            same idea applied at org scale is where the real value shows up.
+          </blockquote>
+          <footer>
+            <span class="testimonial-avatar testimonial-avatar-engineer" aria-hidden="true">
+              <img src="assets/testimonials/engineer-avatar.svg" alt="">
+            </span>
+            <div>
+              <strong>Alexandru-Cosmin</strong>
+              <span>Senior Software Engineer, OPEX, Microsoft</span>
+            </div>
+          </footer>
+        </article>
         </div>
       </div>
     </section>
