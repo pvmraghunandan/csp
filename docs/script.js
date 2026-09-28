@@ -1,5 +1,32 @@
-const reducedMotion = false;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealItems = document.querySelectorAll(".reveal");
+const root = document.documentElement;
+const themeToggle = document.querySelector(".theme-toggle");
+const themeColor = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme, persist = true) {
+  const nextTheme = theme === "light" ? "light" : "dark";
+  root.dataset.theme = nextTheme;
+  themeToggle.setAttribute(
+    "aria-label",
+    nextTheme === "light" ? "Switch to dark mode" : "Switch to light mode"
+  );
+  themeColor.setAttribute("content", nextTheme === "light" ? "#f5f7fb" : "#080b14");
+
+  if (persist) {
+    try {
+      window.localStorage.setItem("cognisphere-theme", nextTheme);
+    } catch {
+      // The selected theme still applies for the current page.
+    }
+  }
+}
+
+applyTheme(root.dataset.theme, false);
+
+themeToggle.addEventListener("click", () => {
+  applyTheme(root.dataset.theme === "light" ? "dark" : "light");
+});
 
 document.body.classList.add("is-loading");
 
@@ -38,16 +65,25 @@ if (year) {
 }
 
 const journeyButton = document.getElementById("run-journey");
+const journeyStage = document.querySelector(".journey-stage");
 const journeySteps = [...document.querySelectorAll("[data-journey-step]")];
+const journeyScenes = [...document.querySelectorAll("[data-journey-scene]")];
 const sourceResult = document.querySelector('[data-journey-result="source"]');
 const memoryResult = document.querySelector('[data-journey-result="memory"]');
 let journeyTimer;
 
 function setJourneyStep(step) {
+  journeyStage.dataset.journeyPhase = String(step);
   journeySteps.forEach((item, index) => {
     item.classList.toggle("active", index <= step);
+    item.classList.toggle("current", index === step);
   });
-  sourceResult.classList.toggle("is-active", step >= 0);
+  journeyScenes.forEach((item) => {
+    const scene = Number(item.dataset.journeyScene);
+    item.classList.toggle("is-revealed", scene <= step);
+    item.classList.toggle("is-current", scene === step);
+  });
+  sourceResult.classList.toggle("is-active", step >= 2);
   memoryResult.classList.toggle("is-active", step >= journeySteps.length - 1);
 }
 
@@ -55,6 +91,7 @@ function runJourney() {
   window.clearInterval(journeyTimer);
   let step = 0;
   journeyButton.classList.add("running");
+  journeyStage.classList.add("is-running");
   journeyButton.querySelector(".journey-control-text").textContent = "Memory moving...";
   setJourneyStep(step);
 
@@ -74,6 +111,28 @@ function runJourney() {
 journeyButton.addEventListener("click", runJourney);
 
 const heroOrbit = document.querySelector(".hero-orbit");
+const cognitionStory = document.querySelector(".hero-learning-map");
+
+function replayCognitionStory() {
+  cognitionStory.classList.remove("story-active");
+  void cognitionStory.getBoundingClientRect();
+  cognitionStory.classList.add("story-active");
+
+  const storySvg = cognitionStory.querySelector("svg");
+  if (storySvg && typeof storySvg.setCurrentTime === "function") {
+    storySvg.setCurrentTime(0);
+  }
+}
+
+if (cognitionStory && !reducedMotion) {
+  cognitionStory.addEventListener("click", replayCognitionStory);
+  cognitionStory.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      replayCognitionStory();
+    }
+  });
+}
 
 const sectionEffectsObserver = new IntersectionObserver(
   (entries) => {

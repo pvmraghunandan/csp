@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="4" x2="72" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5547a8"/>
+      <stop offset="1" stop-color="#18243c"/>
+    </linearGradient>
+    <linearGradient id="shirt" x1="40" y1="50" x2="40" y2="80" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9b8cff"/>
+      <stop offset="1" stop-color="#4d4781"/>
+    </linearGradient>
+  </defs>
+  <rect width="80" height="80" rx="40" fill="url(#bg)"/>
+  <circle cx="40" cy="32" r="15" fill="#d8aa8c"/>
+  <path d="M24 31c0-12 6-19 17-19 10 0 16 7 16 18-4-1-8-4-10-8-6 6-13 8-23 9Z" fill="#171724"/>
+  <path d="M17 80c2-18 10-27 23-27s22 9 24 27H17Z" fill="url(#shirt)"/>
+  <path d="m34 54 6 9 6-9" fill="#f4f1ff"/>
+  <circle cx="34.5" cy="33" r="1.2" fill="#25202b"/>
+  <circle cx="45.5" cy="33" r="1.2" fill="#25202b"/>
+  <path d="M36 41c2.5 1.8 5.5 1.8 8 0" fill="none" stroke="#8b5548" stroke-width="1.4" stroke-linecap="round"/>
+</svg>

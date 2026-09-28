@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Agency</title>
+  <defs>
+    <linearGradient id="tile" x1="8" y1="6" x2="55" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/>
+      <stop offset="1" stop-color="#f5f5f7"/>
+    </linearGradient>
+    <linearGradient id="agencyTop" x1="14" y1="17" x2="51" y2="34" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff8d74"/>
+      <stop offset=".52" stop-color="#ee4fac"/>
+      <stop offset="1" stop-color="#cb40d2"/>
+    </linearGradient>
+    <linearGradient id="agencyBottom" x1="15" y1="48" x2="50" y2="31" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bf4bea"/>
+      <stop offset=".55" stop-color="#8e27c8"/>
+      <stop offset="1" stop-color="#b236d2"/>
+    </linearGradient>
+    <filter id="tileShadow" x="-30%" y="-30%" width="160%" height="170%">
+      <feDropShadow dx="0" dy="2.5" stdDeviation="2.4" flood-color="#202432" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <g filter="url(#tileShadow)">
+    <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#tile)" stroke="#d8d9de" stroke-width="1.5"/>
+    <path d="M15 16h22l13 13v7l-11 6-24-20Z" fill="url(#agencyTop)"/>
+    <path d="M15 48h22l13-12-11-9-10 9-14 6Z" fill="url(#agencyBottom)"/>
+    <path d="m29 36 10-9 11 9-13 12H26Z" fill="#8021b3" fill-opacity=".72"/>
+  </g>
+</svg>
