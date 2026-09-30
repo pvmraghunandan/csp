@@ -959,6 +959,255 @@ a {
   font-size: 0.7rem;
 }
 
+/* --- Scale model -------------------------------------------------------- */
+
+.scale-section {
+  border-top: 1px solid var(--line);
+}
+
+.scale-model {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+  gap: 24px;
+  margin-top: 72px;
+}
+
+.scale-panel,
+.scale-result {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 32px;
+}
+
+.scale-panel {
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.scale-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.scale-presets button {
+  padding: 9px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition:
+    color 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.scale-presets button:hover {
+  color: var(--text);
+  border-color: rgba(174, 190, 220, 0.3);
+}
+
+.scale-presets button[aria-pressed="true"] {
+  border-color: rgba(141, 124, 247, 0.55);
+  background: rgba(141, 124, 247, 0.16);
+  color: var(--text);
+}
+
+.scale-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 4px 16px;
+  margin-top: 30px;
+}
+
+.scale-field label {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.scale-field output {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scale-field input[type="range"] {
+  grid-column: 1 / -1;
+  width: 100%;
+  margin-top: 12px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+.scale-hint {
+  grid-column: 1 / -1;
+  margin: 9px 0 0;
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.scale-derived {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 34px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.scale-derived dt {
+  color: var(--muted);
+  font-size: 0.68rem;
+  line-height: 1.45;
+}
+
+.scale-derived dd {
+  margin: 8px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.35rem;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scale-result {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 100% 0, rgba(93, 216, 209, 0.14), transparent 38%),
+    linear-gradient(145deg, rgba(143, 124, 255, 0.11), rgba(255, 255, 255, 0.02));
+}
+
+.scale-result > strong {
+  display: block;
+  width: fit-content;
+  margin-top: 30px;
+  color: transparent;
+  background: linear-gradient(100deg, var(--accent-bright), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(4rem, 5.6vw, 6rem);
+  font-weight: 700;
+  letter-spacing: -0.07em;
+  line-height: 0.9;
+  font-variant-numeric: tabular-nums;
+}
+
+.scale-result h3 {
+  margin: 16px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.45rem;
+  letter-spacing: -0.035em;
+}
+
+.scale-gauge {
+  margin-top: auto;
+  padding-top: 34px;
+}
+
+.scale-gauge-track {
+  position: relative;
+  height: 6px;
+  border-radius: 999px;
+  background: rgba(174, 190, 220, 0.16);
+  overflow: hidden;
+}
+
+.scale-gauge-track i {
+  display: block;
+  width: var(--scale-fill, 0%);
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--accent), var(--cyan));
+  transition: width 420ms cubic-bezier(0.22, 0.78, 0.3, 1);
+}
+
+.scale-gauge-legend {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 0.65rem;
+}
+
+.scale-outcomes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 26px 0 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.scale-outcomes dt {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.scale-outcomes dd {
+  margin: 8px 0 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: -0.045em;
+  font-variant-numeric: tabular-nums;
+}
+
+.scale-ladder {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.scale-ladder article {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 17px;
+  padding: 24px;
+  border-top: 1px solid var(--line);
+}
+
+.scale-ladder article > span {
+  color: var(--accent-bright);
+  font-family: "Manrope", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.scale-ladder h3 {
+  margin: 0 0 7px;
+  font-family: "Manrope", sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.025em;
+}
+
+.scale-ladder p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.scale-note {
+  max-width: 900px;
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.7;
+}
+
+.scale-note strong {
+  color: var(--text);
+}
+
 @property --card-float {
   syntax: "<length>";
   inherits: false;
@@ -2948,6 +3197,7 @@ a.resource-card:hover {
 :root[data-theme="light"] .planned-integrations,
 :root[data-theme="light"] .benchmark-stat,
 :root[data-theme="light"] .benchmark-method,
+:root[data-theme="light"] .scale-panel,
 :root[data-theme="light"] .flow-step,
 :root[data-theme="light"] .control-card,
 :root[data-theme="light"] .resource-card,
@@ -2958,10 +3208,20 @@ a.resource-card:hover {
   box-shadow: 0 18px 52px rgba(23, 32, 51, 0.06);
 }
 
-:root[data-theme="light"] .benchmark-primary {
+:root[data-theme="light"] .benchmark-primary,
+:root[data-theme="light"] .scale-result {
   background:
     radial-gradient(circle at 100% 0, rgba(8, 127, 135, 0.1), transparent 40%),
     linear-gradient(145deg, rgba(101, 87, 215, 0.08), rgba(255, 255, 255, 0.86));
+}
+
+:root[data-theme="light"] .scale-gauge-track {
+  background: rgba(52, 64, 84, 0.14);
+}
+
+:root[data-theme="light"] .scale-presets button[aria-pressed="true"] {
+  border-color: rgba(101, 87, 215, 0.4);
+  background: rgba(101, 87, 215, 0.12);
 }
 
 :root[data-theme="light"] .testimonials-aurora {
@@ -3433,6 +3693,14 @@ a.resource-card:hover {
     grid-template-columns: 1fr;
   }
 
+  .scale-model {
+    grid-template-columns: 1fr;
+  }
+
+  .scale-ladder {
+    grid-template-columns: 1fr;
+  }
+
   /* Below this width there is no room for an orbit, so the stage degrades to a stack. */
   .testimonial-stage {
     height: auto !important;
@@ -3639,6 +3907,20 @@ a.resource-card:hover {
 
   .benchmark-summary {
     margin-top: 50px;
+  }
+
+  .scale-model {
+    margin-top: 50px;
+  }
+
+  .scale-panel,
+  .scale-result {
+    padding: 26px;
+  }
+
+  .scale-derived,
+  .scale-outcomes {
+    grid-template-columns: 1fr;
   }
 
   .testimonial-stage {

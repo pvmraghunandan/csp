@@ -123,6 +123,116 @@ if (testimonialStage) {
   window.addEventListener("load", syncStageHeight);
 }
 
+// Bridges the measured single-seat benchmark to a modelled company-scale ceiling.
+// Every constant below is either measured in the 100-run benchmark or stated as an
+// assumption in the copy next to the control, so the projection stays auditable.
+const scalePeople = document.getElementById("scale-people");
+if (scalePeople) {
+  const MEASURED_BASELINE = 322631;
+  const MEASURED_AGENT_RUN = 167768;
+  const MODELLED_RECALL = 28000;
+  const OVERLAP_CEILING = 0.97;
+  const OVERLAP_SATURATION = 60;
+  const ANSWERS_PER_SURFACE_YEAR = 300;
+  const MAX_PEOPLE = 5000;
+  const FLOOR_MULTIPLIER = 1.9;
+  const CEILING_MULTIPLIER = 10;
+
+  const scaleSurfaces = document.getElementById("scale-surfaces");
+  const peopleValue = document.getElementById("scale-people-value");
+  const surfacesValue = document.getElementById("scale-surfaces-value");
+  const multiplierValue = document.querySelector("[data-scale-multiplier]");
+  const reachValue = document.querySelector("[data-scale-reach]");
+  const overlapValue = document.querySelector("[data-scale-overlap]");
+  const tokensValue = document.querySelector("[data-scale-tokens]");
+  const costValue = document.querySelector("[data-scale-cost]");
+  const gauge = document.querySelector("[data-scale-gauge]");
+  const presets = [...document.querySelectorAll("[data-scale-preset]")];
+
+  // The people slider is exponential so a single control spans 1 to 5,000 usefully.
+  function snap(count) {
+    if (count <= 10) {
+      return count;
+    }
+
+    const magnitude = 10 ** (Math.floor(Math.log10(count)) - 1);
+    return Math.round(count / magnitude) * magnitude;
+  }
+
+  function peopleFromSlider(position) {
+    return snap(Math.round(Math.exp((Math.log(MAX_PEOPLE) * position) / 100)));
+  }
+
+  function sliderFromPeople(count) {
+    return Math.round((Math.log(count) / Math.log(MAX_PEOPLE)) * 100);
+  }
+
+  function formatCompact(value) {
+    const units = [
+      [1e12, "T"],
+      [1e9, "B"],
+      [1e6, "M"],
+      [1e3, "K"],
+    ];
+
+    for (const [size, suffix] of units) {
+      if (value >= size) {
+        const scaled = value / size;
+        return `${scaled.toFixed(scaled >= 100 ? 0 : 1)}${suffix}`;
+      }
+    }
+
+    return Math.round(value).toLocaleString("en-US");
+  }
+
+  function render() {
+    const people = peopleFromSlider(Number(scalePeople.value));
+    const surfaces = Number(scaleSurfaces.value);
+    const reach = people * surfaces;
+
+    // Overlap is the chance a question has already been answered somewhere in the
+    // fabric. It rises with reach and saturates, which is what caps the multiplier.
+    const overlap = OVERLAP_CEILING * (1 - Math.exp(-reach / OVERLAP_SATURATION));
+    const costPerAnswer = overlap * MODELLED_RECALL + (1 - overlap) * MEASURED_AGENT_RUN;
+    const multiplier = MEASURED_BASELINE / costPerAnswer;
+    const answers = reach * ANSWERS_PER_SURFACE_YEAR;
+    const tokensAvoided = answers * (MEASURED_BASELINE - costPerAnswer);
+    const fill =
+      ((multiplier - FLOOR_MULTIPLIER) / (CEILING_MULTIPLIER - FLOOR_MULTIPLIER)) * 100;
+
+    peopleValue.textContent = people.toLocaleString("en-US");
+    surfacesValue.textContent = surfaces;
+    reachValue.textContent = reach.toLocaleString("en-US");
+    overlapValue.textContent = `${(overlap * 100).toFixed(1)}%`;
+    multiplierValue.textContent = multiplier.toFixed(1);
+    tokensValue.textContent = formatCompact(tokensAvoided);
+    costValue.textContent = Math.round(costPerAnswer).toLocaleString("en-US");
+    gauge.style.setProperty("--scale-fill", `${Math.min(Math.max(fill, 0), 100)}%`);
+
+    presets.forEach((preset) => {
+      const [presetPeople, presetSurfaces] = preset.dataset.scalePreset.split(",").map(Number);
+      const matches = presetPeople === people && presetSurfaces === surfaces;
+
+      preset.setAttribute("aria-pressed", String(matches));
+    });
+  }
+
+  presets.forEach((preset) => {
+    preset.setAttribute("aria-pressed", "false");
+    preset.addEventListener("click", () => {
+      const [presetPeople, presetSurfaces] = preset.dataset.scalePreset.split(",").map(Number);
+
+      scalePeople.value = String(sliderFromPeople(presetPeople));
+      scaleSurfaces.value = String(presetSurfaces);
+      render();
+    });
+  });
+
+  scalePeople.addEventListener("input", render);
+  scaleSurfaces.addEventListener("input", render);
+  render();
+}
+
 const journeyButton = document.getElementById("run-journey");
 const journeyStage = document.querySelector(".journey-stage");
 const journeySteps = [...document.querySelectorAll("[data-journey-step]")];
